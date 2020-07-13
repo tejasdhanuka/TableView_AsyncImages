@@ -9,12 +9,15 @@
 /* Begin PBXBuildFile section */
 		7F41076924BAE0C8007EE4BE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41076824BAE0C8007EE4BE /* AppDelegate.swift */; };
 		7F41076B24BAE0C8007EE4BE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41076A24BAE0C8007EE4BE /* SceneDelegate.swift */; };
-		7F41076D24BAE0C8007EE4BE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41076C24BAE0C8007EE4BE /* ViewController.swift */; };
 		7F41077024BAE0C8007EE4BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F41076E24BAE0C8007EE4BE /* Main.storyboard */; };
 		7F41077224BAE0C9007EE4BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F41077124BAE0C9007EE4BE /* Assets.xcassets */; };
 		7F41077524BAE0C9007EE4BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F41077324BAE0C9007EE4BE /* LaunchScreen.storyboard */; };
 		7F41078024BAE0CA007EE4BE /* TableViewAsyncImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41077F24BAE0CA007EE4BE /* TableViewAsyncImagesTests.swift */; };
 		7F41078B24BAE0CA007EE4BE /* TableViewAsyncImagesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F41078A24BAE0CA007EE4BE /* TableViewAsyncImagesUITests.swift */; };
+		7F7FFCAD24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */; };
+		7F7FFCAF24BC0B9400E02EBB /* AsyncImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCAE24BC0B9400E02EBB /* AsyncImagesTableViewController.swift */; };
+		7F7FFCB124BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCB024BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift */; };
+		7F7FFCB324BC0D7900E02EBB /* AsyncImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +41,6 @@
 		7F41076524BAE0C8007EE4BE /* TableViewAsyncImages.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TableViewAsyncImages.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41076824BAE0C8007EE4BE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F41076A24BAE0C8007EE4BE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F41076C24BAE0C8007EE4BE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		7F41076F24BAE0C8007EE4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F41077124BAE0C9007EE4BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F41077424BAE0C9007EE4BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,10 @@
 		7F41078624BAE0CA007EE4BE /* TableViewAsyncImagesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TableViewAsyncImagesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F41078A24BAE0CA007EE4BE /* TableViewAsyncImagesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewAsyncImagesUITests.swift; sourceTree = "<group>"; };
 		7F41078C24BAE0CA007EE4BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesTableViewCell.swift; sourceTree = "<group>"; };
+		7F7FFCAE24BC0B9400E02EBB /* AsyncImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesTableViewController.swift; sourceTree = "<group>"; };
+		7F7FFCB024BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncImagesTableViewController+TableView.swift"; sourceTree = "<group>"; };
+		7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,7 +107,10 @@
 			children = (
 				7F41076824BAE0C8007EE4BE /* AppDelegate.swift */,
 				7F41076A24BAE0C8007EE4BE /* SceneDelegate.swift */,
-				7F41076C24BAE0C8007EE4BE /* ViewController.swift */,
+				7F7FFCAE24BC0B9400E02EBB /* AsyncImagesTableViewController.swift */,
+				7F7FFCB024BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift */,
+				7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */,
+				7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */,
 				7F41076E24BAE0C8007EE4BE /* Main.storyboard */,
 				7F41077124BAE0C9007EE4BE /* Assets.xcassets */,
 				7F41077324BAE0C9007EE4BE /* LaunchScreen.storyboard */,
@@ -259,9 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F41076D24BAE0C8007EE4BE /* ViewController.swift in Sources */,
 				7F41076924BAE0C8007EE4BE /* AppDelegate.swift in Sources */,
+				7F7FFCB124BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift in Sources */,
 				7F41076B24BAE0C8007EE4BE /* SceneDelegate.swift in Sources */,
+				7F7FFCAF24BC0B9400E02EBB /* AsyncImagesTableViewController.swift in Sources */,
+				7F7FFCB324BC0D7900E02EBB /* AsyncImagesModel.swift in Sources */,
+				7F7FFCAD24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
