@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct Records {
+struct Record {
     var title: String = ""
     var description: String = ""
     var imageHref: String = ""
