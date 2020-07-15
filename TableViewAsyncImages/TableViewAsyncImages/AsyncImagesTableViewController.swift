@@ -13,7 +13,7 @@ class AsyncImagesTableViewController: UITableViewController {
     
     private let urlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     private var navTitle: String?
-    private var records: [Records] = []
+    private var records: [Record] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,8 +36,22 @@ class AsyncImagesTableViewController: UITableViewController {
                 let data8 = Str.data(using: .utf8) {
                 print(data)
                 do {
-                    let json = try JSONSerialization.jsonObject(with: data8, options: [])
-                    print(json)
+                    let json = try JSONSerialization.jsonObject(with: data8, options: []) as! [String: Any]
+                    self.navTitle = json["title"] as? String ?? ""
+                    let recordsArray = json["rows"] as? [Dictionary<String, Any>] ?? []
+                    
+                    for record in recordsArray {
+                        let title = record["title"] as? String ?? ""
+                        let description = record["description"] as? String ?? ""
+                        let imageHref = record["imageHref"] as? String ?? ""
+                        
+                        self.records.append(Record(title: title, description: description, imageHref: imageHref, image: nil))
+                        
+                        self.records.sort {
+                            $0.title < $1.title
+                        }
+                        self.updateData()
+                    }
                 } catch {
                     print("Unable to parse JSON")
                 }
@@ -45,5 +59,12 @@ class AsyncImagesTableViewController: UITableViewController {
             
         }
         task?.resume()
+    }
+    
+    private func updateData() {
+        DispatchQueue.main.async {
+            self.navigationItem.title = self.navTitle
+            self.tableView.reloadData()
+        }
     }
 }
