@@ -13,12 +13,24 @@ class AsyncImagesTableViewController: UITableViewController {
     
     private let urlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     private var navTitle: String?
+    
     var records: [Record] = []
+    var refreshController = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadJSON()
-        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshController
+            refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        } else {
+            tableView.addSubview(refreshController)
+        }
+    }
+    
+    @objc func refresh(sender: UIRefreshControl) {
+        loadJSON()
+        sender.endRefreshing()
     }
     
     private func loadJSON() {
@@ -69,7 +81,19 @@ class AsyncImagesTableViewController: UITableViewController {
     }
     
     func loadImage(imageUrl: String, index: Int) {
+        var task: URLSessionTask?
         
+        guard let url = URL(string: imageUrl) else {
+            print("Incorrect URL String. Cannot form URL")
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+        task = session.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            self.records[index].image = UIImage(data: data)
+            self.updateData()
+        }
+        task?.resume()
     }
-
 }
