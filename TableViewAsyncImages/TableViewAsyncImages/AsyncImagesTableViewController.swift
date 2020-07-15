@@ -13,7 +13,7 @@ class AsyncImagesTableViewController: UITableViewController {
     
     private let urlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     private var navTitle: String?
-    private var records: [Record] = []
+    var records: [Record] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,4 +67,9 @@ class AsyncImagesTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    func loadImage(imageUrl: String, index: Int) {
+        
+    }
+
 }
