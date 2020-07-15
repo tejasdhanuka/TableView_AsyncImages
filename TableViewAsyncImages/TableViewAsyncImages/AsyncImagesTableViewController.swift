@@ -16,6 +16,8 @@ class AsyncImagesTableViewController: UITableViewController {
     
     var records: [Record] = []
     var refreshController = UIRefreshControl()
+    var isScrolling = false
+    var pendingUpdate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,8 +94,25 @@ class AsyncImagesTableViewController: UITableViewController {
         task = session.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
             self.records[index].image = UIImage(data: data)
-            self.updateData()
+            if !self.isScrolling {
+                self.updateData()
+            } else {
+                self.pendingUpdate = true
+            }
         }
         task?.resume()
+    }
+    
+    // MARK: - scroll view delegates
+    override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        isScrolling = true
+    }
+    
+    override func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        isScrolling = false
+        if pendingUpdate {
+            updateData()
+            pendingUpdate = false
+        }
     }
 }
