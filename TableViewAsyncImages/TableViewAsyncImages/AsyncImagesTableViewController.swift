@@ -53,7 +53,7 @@ class AsyncImagesTableViewController: UITableViewController {
                     let json = try JSONSerialization.jsonObject(with: data8, options: []) as! [String: Any]
                     self.navTitle = json["title"] as? String ?? ""
                     let recordsArray = json["rows"] as? [Dictionary<String, Any>] ?? []
-                    
+                    self.records.removeAll()
                     for record in recordsArray {
                         let title = record["title"] as? String ?? ""
                         let description = record["description"] as? String ?? ""
