@@ -11,18 +11,17 @@ import Foundation
 
 class AsyncImagesTableViewController: UITableViewController {
     
-    private let urlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
-    private var navTitle: String?
-    private var viewModel = AsyncImagesViewModel()
+    var viewModel = AsyncImagesViewModel()
     
-    var records: [Record] = []
     var refreshController = UIRefreshControl()
     var isScrolling = false
     var pendingUpdate = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadJSON()
+        viewModel.loadJSON(onSuccess: {
+            self.updateData()
+        })
         if #available(iOS 10.0, *) {
             tableView.refreshControl = refreshController
             refreshController.addTarget(self, action: #selector(refresh), for: .valueChanged)
@@ -32,13 +31,15 @@ class AsyncImagesTableViewController: UITableViewController {
     }
     
     @objc func refresh(sender: UIRefreshControl) {
-        loadJSON()
+        viewModel.loadJSON(onSuccess: {
+            self.updateData()
+        })
         sender.endRefreshing()
     }
     
     private func updateData() {
         DispatchQueue.main.async {
-            self.navigationItem.title = self.navTitle
+            self.navigationItem.title = self.viewModel.aboutCanada.title
             self.tableView.reloadData()
         }
     }
@@ -54,7 +55,7 @@ class AsyncImagesTableViewController: UITableViewController {
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
-            self.records[index].image = UIImage(data: data)
+            self.viewModel.aboutCanada.rows?[index].image = UIImage(data: data)
             if !self.isScrolling {
                 self.updateData()
             } else {

@@ -7,45 +7,35 @@
 //
 
 import Foundation
+import UIKit
 
 class AsyncImagesViewModel {
-    func loadJSON() {
+    
+    var aboutCanada: AboutCanada = AboutCanada(title: "", rows: nil) {
+        didSet {
+            print(aboutCanada)
+        }
+    }
+    
+    func loadJSON(onSuccess: @escaping (() -> Void)) {
         var task: URLSessionTask?
-
-        guard let url = URL(string: urlString) else {
+        
+        guard let url = URL(string: Constants.DataUrlString) else {
             print("Incorrect URL String. Cannot form URL")
             return
         }
-
+        
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: url) { data, response, error in
             guard let data = data, error == nil else { return }
             if let Str = String(data: data, encoding: .ascii),
                 let data8 = Str.data(using: .utf8) {
-                print(data)
-                do {
-                    let json = try JSONSerialization.jsonObject(with: data8, options: []) as! [String: Any]
-                    self.navTitle = json["title"] as? String ?? ""
-                    let recordsArray = json["rows"] as? [Dictionary<String, Any>] ?? []
-                    self.records.removeAll()
-                    for record in recordsArray {
-                        let title = record["title"] as? String ?? ""
-                        let description = record["description"] as? String ?? ""
-                        let imageHref = record["imageHref"] as? String ?? ""
-                        if let
-                            self.records.append(Record(title: title, description: description, imageHref: imageHref, image: nil))
-
-                        self.records.sort {
-                            $0.title < $1.title
-                        }
-                        self.updateData()
-                    }
-                } catch {
-                    print("Unable to parse JSON")
-                }
+                let aboutCanada = try! JSONDecoder().decode(AboutCanada.self, from: data8)
+                self.aboutCanada = aboutCanada
+                onSuccess()
             }
-
         }
         task?.resume()
     }
 }
+
