@@ -18,6 +18,7 @@
 		7F7FFCAF24BC0B9400E02EBB /* AsyncImagesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCAE24BC0B9400E02EBB /* AsyncImagesTableViewController.swift */; };
 		7F7FFCB124BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCB024BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift */; };
 		7F7FFCB324BC0D7900E02EBB /* AsyncImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */; };
+		7FABD52E24CAA11F0058A257 /* AsyncImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7F7FFCAE24BC0B9400E02EBB /* AsyncImagesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesTableViewController.swift; sourceTree = "<group>"; };
 		7F7FFCB024BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncImagesTableViewController+TableView.swift"; sourceTree = "<group>"; };
 		7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesModel.swift; sourceTree = "<group>"; };
+		7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 		7FE8F55E24C7E0620026F073 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F41076924BAE0C8007EE4BE /* AppDelegate.swift in Sources */,
+				7FABD52E24CAA11F0058A257 /* AsyncImagesViewModel.swift in Sources */,
 				7F7FFCB124BC0C3C00E02EBB /* AsyncImagesTableViewController+TableView.swift in Sources */,
 				7F41076B24BAE0C8007EE4BE /* SceneDelegate.swift in Sources */,
 				7F7FFCAF24BC0B9400E02EBB /* AsyncImagesTableViewController.swift in Sources */,

@@ -50,38 +50,6 @@
             endingLineNumber = "47"
             landmarkName = "loadJSON()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "4755CB6F-940F-4588-9148-3F2D6B5D9125 - d090900f535cfe68"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TableViewAsyncImages.AsyncImagesTableViewController.(loadJSON in _1DFF5C40A514E136337BAC2BDA05AAED)() -&gt; ()"
-                  moduleName = "TableViewAsyncImages"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ts-tejas.dhanuka/Desktop/TableViewAsyncImages/TableView_AsyncImages/TableViewAsyncImages/TableViewAsyncImages/AsyncImagesTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "458">
-               </Location>
-               <Location
-                  uuid = "4755CB6F-940F-4588-9148-3F2D6B5D9125 - dc61d9cb2ac064d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in TableViewAsyncImages.AsyncImagesTableViewController.(loadJSON in _1DFF5C40A514E136337BAC2BDA05AAED)() -&gt; ()"
-                  moduleName = "TableViewAsyncImages"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ts-tejas.dhanuka/Desktop/TableViewAsyncImages/TableView_AsyncImages/TableViewAsyncImages/TableViewAsyncImages/AsyncImagesTableViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "260">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
