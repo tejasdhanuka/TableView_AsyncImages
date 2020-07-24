@@ -9,9 +9,32 @@
 import Foundation
 import UIKit
 
-struct Record {
-    var title: String = ""
-    var description: String = ""
-    var imageHref: String = ""
+struct Row: Decodable {
+    var title: String?
+    var description: String?
+    var imageHref: String?
     var image: UIImage?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case description
+        case imageHref
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        title = try container.decodeIfPresent(String.self, forKey: .title)
+        description = try container.decodeIfPresent(String.self, forKey: .description)
+        imageHref = try container.decodeIfPresent(String.self, forKey: .imageHref)
+    }
+}
+
+struct AboutCanada: Decodable {
+    var title: String
+    var rows: [Row]?
+    
+    enum CodingKeys: String, CodingKey {
+        case title
+        case rows
+    }
 }

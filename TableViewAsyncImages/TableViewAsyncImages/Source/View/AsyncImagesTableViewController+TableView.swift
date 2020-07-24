@@ -13,7 +13,7 @@ extension AsyncImagesTableViewController {
     // MARK: - Table view data source
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return records.count
+        return viewModel.aboutCanada.rows?.count ?? 0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -21,20 +21,20 @@ extension AsyncImagesTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return records[section].title
+        return viewModel.aboutCanada.rows?[section].title
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AsyncImagesCell", for: indexPath)
         cell.imageView?.image = nil
         
-        if records[indexPath.section].image == nil && !records[indexPath.section].imageHref.isEmpty {
-            loadImage(imageUrl: records[indexPath.section].imageHref, index: indexPath.section)
+        if viewModel.aboutCanada.rows?[indexPath.section].image == nil && !(viewModel.aboutCanada.rows?[indexPath.section].imageHref?.isEmpty ?? true) {
+            loadImage(imageUrl: viewModel.aboutCanada.rows?[indexPath.section].imageHref ?? "", index: indexPath.section)
         } else {
-            cell.imageView?.image = records[indexPath.section].image
+            cell.imageView?.image = viewModel.aboutCanada.rows?[indexPath.section].image
         }
         
-        cell.textLabel?.text = records[indexPath.section].description
+        cell.textLabel?.text = viewModel.aboutCanada.rows?[indexPath.section].description
         cell.textLabel?.lineBreakMode = .byWordWrapping
         cell.textLabel?.numberOfLines = 0
         cell.sizeToFit()
@@ -47,13 +47,13 @@ extension AsyncImagesTableViewController {
         tagLabel.font = .systemFont(ofSize: 12.0)
         tagLabel.lineBreakMode = .byWordWrapping
         tagLabel.numberOfLines = 0
-        tagLabel.text = records[indexPath.section].description
+        tagLabel.text = viewModel.aboutCanada.rows?[indexPath.section].description
         tagLabel.sizeToFit()
         
         var imageHeight = CGFloat(0.0)
         
-        if records[indexPath.section].image != nil {
-            imageHeight = (records[indexPath.section].image?.size.height)! > CGFloat(60.0) ? 60.0 : records[indexPath.section].image?.size.height as! CGFloat
+        if viewModel.aboutCanada.rows?[indexPath.section].image != nil {
+            imageHeight = (viewModel.aboutCanada.rows?[indexPath.section].image?.size.height)! > CGFloat(60.0) ? 60.0 : viewModel.aboutCanada.rows?[indexPath.section].image?.size.height as! CGFloat
         }
         return  imageHeight >  CGFloat(tagLabel.bounds.height + 6.0) ? imageHeight : CGFloat(tagLabel.bounds.height + 6.0)
     }
