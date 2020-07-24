@@ -14,8 +14,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        if #available(iOS 13.0, *) {
+            return true
+        } else {
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = AsyncImagesViewController(nibName: "AsyncImagesViewController", bundle: nil)
+            self.window?.makeKeyAndVisible()
+            return true
+        }
     }
     
     // MARK: UISceneSession Lifecycle
