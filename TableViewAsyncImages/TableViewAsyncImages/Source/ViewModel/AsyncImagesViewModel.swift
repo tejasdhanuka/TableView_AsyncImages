@@ -20,7 +20,7 @@ class AsyncImagesViewModel {
     func loadJSON(onSuccess: @escaping (() -> Void)) {
         var task: URLSessionTask?
         
-        guard let url = URL(string: Constants.DataUrlString) else {
+        guard let url = URL(string: Constants.dataUrlString) else {
             print("Incorrect URL String. Cannot form URL")
             return
         }
@@ -36,6 +36,30 @@ class AsyncImagesViewModel {
             }
         }
         task?.resume()
+    }
+    
+    func loadImage(imageUrl: String, index: Int) {
+        var task: URLSessionTask?
+        
+        guard let url = URL(string: imageUrl) else {
+            print("Incorrect URL String. Cannot form URL")
+            return
+        }
+        
+        let session = URLSession(configuration: .default)
+        task = session.dataTask(with: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            self.aboutCanada.rows?[index].image = UIImage(data: data)
+        }
+        task?.resume()
+    }
+    
+    func numberOfSections() -> Int {
+        return 1
+    }
+    
+    func numberOfRows() -> Int {
+        return aboutCanada.rows?.count ?? 0
     }
 }
 

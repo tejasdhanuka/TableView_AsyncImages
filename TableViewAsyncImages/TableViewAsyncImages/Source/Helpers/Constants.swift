@@ -9,5 +9,7 @@
 import Foundation
 
 struct Constants {
-    static let DataUrlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+    static var dataUrlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+    static var asyncImagesTableViewCellIdentifier = "AsyncImagesTableViewCell"
+
 }
