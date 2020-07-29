@@ -27,8 +27,10 @@ class AsyncImagesViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        LoadingOverlay.shared.showOverlay(view: self.view)
         viewModel.loadJSON(onSuccess: {
             self.updateData()
+            LoadingOverlay.shared.hideOverlayView()
         })
     }
     
