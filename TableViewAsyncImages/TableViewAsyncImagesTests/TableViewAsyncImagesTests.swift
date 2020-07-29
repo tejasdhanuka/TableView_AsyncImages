@@ -10,25 +10,35 @@ import XCTest
 @testable import TableViewAsyncImages
 
 class TableViewAsyncImagesTests: XCTestCase {
-
+    
+    var sut: AsyncImagesViewModel!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
     }
-
+    
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testAboutCanadaViewModel() {
+        let aboutCanada = AboutCanada(title: "About Canada", rows: [Row(title: "Beavers",
+                                                                        description: "Beavers are second only to humans",
+                                                                        imageHref: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg")])
+        sut = AsyncImagesViewModel(aboutCanada: aboutCanada)
+        
+        XCTAssertEqual(aboutCanada.title, sut.aboutCanada.title)
+        XCTAssertEqual(aboutCanada.rows?[0].title, sut.aboutCanada.rows?[0].title)
+        XCTAssertEqual(aboutCanada.rows?[0].description, sut.aboutCanada.rows?[0].description)
+        XCTAssertEqual(aboutCanada.rows?[0].imageHref, sut.aboutCanada.rows?[0].imageHref)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    
+    func testTableViewDataSource() {
+        let aboutCanada = AboutCanada(title: "About Canada", rows: [Row(title: "Beavers",
+                                                                        description: "Beavers are second only to humans",
+                                                                        imageHref: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg")])
+        sut = AsyncImagesViewModel(aboutCanada: aboutCanada)
+        sut.loadJSON {
+            XCTAssertEqual(self.sut.numberOfSections(), 1)
+            XCTAssertEqual(self.sut.numberOfRows(), 1)
         }
     }
-
 }
