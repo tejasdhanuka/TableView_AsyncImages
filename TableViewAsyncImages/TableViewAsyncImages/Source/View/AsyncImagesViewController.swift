@@ -28,9 +28,16 @@ class AsyncImagesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         LoadingOverlay.shared.showOverlay(view: self.view)
-        viewModel.loadJSON(onSuccess: {
-            self.updateData()
-            LoadingOverlay.shared.hideOverlayView()
+        viewModel.loadJSON(onCompletion: { success in
+            if success {
+                self.updateData()
+                LoadingOverlay.shared.hideOverlayView()
+            } else {
+                let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            }
         })
     }
     
@@ -79,10 +86,17 @@ class AsyncImagesViewController: UIViewController {
     }
     
     @objc func reloadData() {
-        self.viewModel.loadJSON {
-            self.updateData()
-            DispatchQueue.main.async {
-                self.refreshControl.endRefreshing()
+        self.viewModel.loadJSON { success in
+            if success {
+                self.updateData()
+                DispatchQueue.main.async {
+                    self.refreshControl.endRefreshing()
+                }
+            } else {
+                let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }
@@ -104,7 +118,7 @@ extension AsyncImagesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        cell.articleImageView.imageFromServerURL(urlString: viewModel.aboutCanada.rows?[indexPath.row].imageHref ?? "", PlaceHolderImage: UIImage(named: Constants.placeholderImageName) ?? UIImage())
+        cell.articleImageView.imageFromServerURL(urlString: viewModel.aboutCanada.rows?[indexPath.row].imageHref ?? "", PlaceHolderImage: UIImage(named: Constants.placeholderImageName)!)
         cell.titleLabel.text = viewModel.aboutCanada.rows?[indexPath.row].title
         cell.descriptionLabel.text = viewModel.aboutCanada.rows?[indexPath.row].description
         return cell

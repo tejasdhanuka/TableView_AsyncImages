@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SystemConfiguration
 
 class AsyncImagesViewModel {
     
@@ -17,7 +18,7 @@ class AsyncImagesViewModel {
         self.aboutCanada = aboutCanada
     }
     
-    func loadJSON(onSuccess: @escaping (() -> Void)) {
+    func loadJSON(onCompletion: @escaping ((Bool) -> Void)) {
         var task: URLSessionTask?
         
         guard let url = URL(string: Constants.dataUrlString) else {
@@ -27,12 +28,15 @@ class AsyncImagesViewModel {
         
         let session = URLSession(configuration: .default)
         task = session.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
+            guard let data = data, error == nil else {
+                onCompletion(false)
+                return
+            }
             if let Str = String(data: data, encoding: .ascii),
-                let data8 = Str.data(using: .utf8) {
+               let data8 = Str.data(using: .utf8) {
                 let aboutCanada = try! JSONDecoder().decode(AboutCanada.self, from: data8)
                 self.aboutCanada = aboutCanada
-                onSuccess()
+                onCompletion(true)
             }
         }
         task?.resume()
