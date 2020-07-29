@@ -102,7 +102,7 @@ extension AsyncImagesViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         cell.selectionStyle = .none
-        cell.articleImageView.imageFromServerURL(urlString: viewModel.aboutCanada.rows?[indexPath.row].imageHref ?? "", PlaceHolderImage: UIImage(named: "apple") ?? UIImage())
+        cell.articleImageView.imageFromServerURL(urlString: viewModel.aboutCanada.rows?[indexPath.row].imageHref ?? "", PlaceHolderImage: UIImage(named: Constants.placeholderImageName) ?? UIImage())
         cell.titleLabel.text = viewModel.aboutCanada.rows?[indexPath.row].title
         cell.descriptionLabel.text = viewModel.aboutCanada.rows?[indexPath.row].description
         return cell

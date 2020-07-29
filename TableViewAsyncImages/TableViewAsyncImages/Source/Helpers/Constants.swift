@@ -11,5 +11,5 @@ import Foundation
 struct Constants {
     static var dataUrlString = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
     static var asyncImagesTableViewCellIdentifier = "AsyncImagesTableViewCell"
-
+    static var placeholderImageName = "apple"
 }

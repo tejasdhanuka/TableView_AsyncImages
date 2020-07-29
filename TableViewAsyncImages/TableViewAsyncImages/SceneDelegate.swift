@@ -17,7 +17,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         let windowScene: UIWindowScene = scene as! UIWindowScene;
         self.window = UIWindow(windowScene: windowScene)
-        let rootViewController = AsyncImagesViewController(nibName: "AsyncImagesViewController", bundle: nil)
+        let rootViewController = AsyncImagesViewController()
         self.window!.rootViewController = rootViewController
         self.window!.makeKeyAndVisible()
         guard let _ = (scene as? UIWindowScene) else { return }

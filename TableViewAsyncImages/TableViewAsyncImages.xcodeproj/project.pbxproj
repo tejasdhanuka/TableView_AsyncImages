@@ -18,7 +18,6 @@
 		7FABD52E24CAA11F0058A257 /* AsyncImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */; };
 		7FABD53124CAA64D0058A257 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53024CAA64D0058A257 /* Constants.swift */; };
 		7FABD53624CAEA5F0058A257 /* AsyncImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */; };
-		7FABD53724CAEA5F0058A257 /* AsyncImagesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7FABD53524CAEA5F0058A257 /* AsyncImagesViewController.xib */; };
 		7FABD53B24CAF9E90058A257 /* UIImageView+NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53A24CAF9E90058A257 /* UIImageView+NetworkRequest.swift */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +56,6 @@
 		7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesViewModel.swift; sourceTree = "<group>"; };
 		7FABD53024CAA64D0058A257 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesViewController.swift; sourceTree = "<group>"; };
-		7FABD53524CAEA5F0058A257 /* AsyncImagesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsyncImagesViewController.xib; sourceTree = "<group>"; };
 		7FABD53A24CAF9E90058A257 /* UIImageView+NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+NetworkRequest.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,7 +149,6 @@
 			children = (
 				7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */,
 				7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */,
-				7FABD53524CAEA5F0058A257 /* AsyncImagesViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,7 +285,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F41077524BAE0C9007EE4BE /* LaunchScreen.storyboard in Resources */,
-				7FABD53724CAEA5F0058A257 /* AsyncImagesViewController.xib in Resources */,
 				7F41077224BAE0C9007EE4BE /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

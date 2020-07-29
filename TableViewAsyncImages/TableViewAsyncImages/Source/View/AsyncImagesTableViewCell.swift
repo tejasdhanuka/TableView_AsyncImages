@@ -12,12 +12,6 @@ final class AsyncImagesTableViewCell: UITableViewCell {
     
     // MARK: - Properties
     
-    //    var imageUrl: String {
-    //        didSet {
-    //            articleImageView.image = UIImage()
-    //        }
-    //    }
-    
     private let containerView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.white

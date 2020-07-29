@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         } else {
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            self.window?.rootViewController = AsyncImagesViewController(nibName: "AsyncImagesViewController", bundle: nil)
+            self.window?.rootViewController = AsyncImagesViewController()
             self.window?.makeKeyAndVisible()
             return true
         }
