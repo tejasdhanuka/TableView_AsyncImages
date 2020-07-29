@@ -11,10 +11,10 @@ import UIKit
 
 class AsyncImagesViewModel {
     
-    var aboutCanada: AboutCanada = AboutCanada(title: "", rows: nil) {
-        didSet {
-            print(aboutCanada)
-        }
+    var aboutCanada: AboutCanada
+    
+    init(aboutCanada: AboutCanada) {
+        self.aboutCanada = aboutCanada
     }
     
     func loadJSON(onSuccess: @escaping (() -> Void)) {

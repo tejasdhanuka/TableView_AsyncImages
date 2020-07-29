@@ -14,7 +14,7 @@ class AsyncImagesViewController: UIViewController {
     
     private var tableView: UITableView!
     private var refreshControl: UIRefreshControl!
-    private var viewModel = AsyncImagesViewModel()
+    private var viewModel = AsyncImagesViewModel(aboutCanada: AboutCanada(title: "", rows: nil))
     
     // MARK: - ViewController Lifecycle
     
@@ -90,11 +90,11 @@ class AsyncImagesViewController: UIViewController {
 
 extension AsyncImagesViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        viewModel.numberOfSections()
+        return viewModel.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        viewModel.numberOfRows()
+        return viewModel.numberOfRows()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
