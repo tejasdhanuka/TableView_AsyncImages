@@ -27,6 +27,12 @@ struct Row: Decodable {
         description = try container.decodeIfPresent(String.self, forKey: .description)
         imageHref = try container.decodeIfPresent(String.self, forKey: .imageHref)
     }
+    
+    init(title: String, description: String, imageHref: String) {
+        self.title = title
+        self.description = description
+        self.imageHref = imageHref
+    }
 }
 
 struct AboutCanada: Decodable {
