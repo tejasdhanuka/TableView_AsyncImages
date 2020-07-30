@@ -37,10 +37,11 @@ class LoadingOverlay{
         activityIndicator.startAnimating()
     }
     
-    func hideOverlayView() {
+    func hideOverlayView(onCompletion: @escaping (() -> Void)) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.activityIndicator.stopAnimating()
             self.overlayView.removeFromSuperview()
+            onCompletion()
         }
     }
 }

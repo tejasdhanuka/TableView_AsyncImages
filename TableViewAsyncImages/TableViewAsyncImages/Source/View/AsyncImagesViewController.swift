@@ -34,7 +34,9 @@ class AsyncImagesViewController: UIViewController {
             viewModel.loadJSON(onCompletion: { success in
                 if success {
                     self.updateData()
-                    LoadingOverlay.shared.hideOverlayView()
+                    LoadingOverlay.shared.hideOverlayView(onCompletion: {
+                        // do nothing
+                    })
                 } else {
                     let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
                     let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
@@ -44,11 +46,13 @@ class AsyncImagesViewController: UIViewController {
             })
         } else {
             print("Internet connection FAILED")
-            LoadingOverlay.shared.hideOverlayView()
-            let alert = UIAlertController(title: "Alert!", message: "Internet connection FAILED. Please connect to internet and pull to RELOAD", preferredStyle: .alert)
-            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-            alert.addAction(action)
-            self.present(alert, animated: true, completion: nil)
+            LoadingOverlay.shared.hideOverlayView(onCompletion: {
+                let alert = UIAlertController(title: "No internet Connection", message: "Please connect to internet and pull to RELOAD", preferredStyle: .alert)
+                let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                alert.addAction(action)
+                self.present(alert, animated: true, completion: nil)
+            })
+            
         }
     }
     
@@ -114,7 +118,7 @@ class AsyncImagesViewController: UIViewController {
             }
         } else {
             print("Internet connection FAILED")
-            let alert = UIAlertController(title: "Alert!", message: "Internet connection FAILED. Please connect to internet", preferredStyle: .alert)
+            let alert = UIAlertController(title: "No internet Connection", message: "Please connect to internet", preferredStyle: .alert)
             let action = UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
                 DispatchQueue.main.async {
                     self.refreshControl.endRefreshing()
