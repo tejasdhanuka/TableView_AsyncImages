@@ -36,7 +36,7 @@ class TableViewAsyncImagesTests: XCTestCase {
                                                                         description: "Beavers are second only to humans",
                                                                         imageHref: "http://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/American_Beaver.jpg/220px-American_Beaver.jpg")])
         sut = AsyncImagesViewModel(aboutCanada: aboutCanada)
-        sut.loadJSON {
+        sut.loadJSON {_ in 
             XCTAssertEqual(self.sut.numberOfSections(), 1)
             XCTAssertEqual(self.sut.numberOfRows(), 1)
         }
