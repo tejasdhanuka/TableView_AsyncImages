@@ -16,6 +16,7 @@
 		7F7BCFB524D16CBA00162AB2 /* LoadingOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7BCFB424D16CBA00162AB2 /* LoadingOverlay.swift */; };
 		7F7FFCAD24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */; };
 		7F7FFCB324BC0D7900E02EBB /* AsyncImagesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */; };
+		7F834FED24D2EC26008E2C83 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F834FEC24D2EC26008E2C83 /* Reachability.swift */; };
 		7FABD52E24CAA11F0058A257 /* AsyncImagesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */; };
 		7FABD53124CAA64D0058A257 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53024CAA64D0058A257 /* Constants.swift */; };
 		7FABD53624CAEA5F0058A257 /* AsyncImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */; };
@@ -55,6 +56,7 @@
 		7F7BCFB424D16CBA00162AB2 /* LoadingOverlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingOverlay.swift; sourceTree = "<group>"; };
 		7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesTableViewCell.swift; sourceTree = "<group>"; };
 		7F7FFCB224BC0D7900E02EBB /* AsyncImagesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesModel.swift; sourceTree = "<group>"; };
+		7F834FEC24D2EC26008E2C83 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		7FABD52D24CAA11F0058A257 /* AsyncImagesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesViewModel.swift; sourceTree = "<group>"; };
 		7FABD53024CAA64D0058A257 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +145,7 @@
 				7FABD53024CAA64D0058A257 /* Constants.swift */,
 				7FABD53A24CAF9E90058A257 /* UIImageView+NetworkRequest.swift */,
 				7F7BCFB424D16CBA00162AB2 /* LoadingOverlay.swift */,
+				7F834FEC24D2EC26008E2C83 /* Reachability.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 				7F7FFCAD24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift in Sources */,
 				7FABD53124CAA64D0058A257 /* Constants.swift in Sources */,
 				7FABD53624CAEA5F0058A257 /* AsyncImagesViewController.swift in Sources */,
+				7F834FED24D2EC26008E2C83 /* Reachability.swift in Sources */,
 				7F7BCFB524D16CBA00162AB2 /* LoadingOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

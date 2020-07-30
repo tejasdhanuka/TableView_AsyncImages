@@ -28,17 +28,28 @@ class AsyncImagesViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         LoadingOverlay.shared.showOverlay(view: self.view)
-        viewModel.loadJSON(onCompletion: { success in
-            if success {
-                self.updateData()
-                LoadingOverlay.shared.hideOverlayView()
-            } else {
-                let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }
-        })
+        
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            viewModel.loadJSON(onCompletion: { success in
+                if success {
+                    self.updateData()
+                    LoadingOverlay.shared.hideOverlayView()
+                } else {
+                    let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            })
+        } else {
+            print("Internet connection FAILED")
+            LoadingOverlay.shared.hideOverlayView()
+            let alert = UIAlertController(title: "Alert!", message: "Internet connection FAILED. Please connect to internet and pull to RELOAD", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
     
     // MARK: - Setup
@@ -86,19 +97,33 @@ class AsyncImagesViewController: UIViewController {
     }
     
     @objc func reloadData() {
-        self.viewModel.loadJSON { success in
-            if success {
-                self.updateData()
+        if Reachability.isConnectedToNetwork() == true {
+            print("Internet connection OK")
+            self.viewModel.loadJSON { success in
+                if success {
+                    self.updateData()
+                    DispatchQueue.main.async {
+                        self.refreshControl.endRefreshing()
+                    }
+                } else {
+                    let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
+                    let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
+                    alert.addAction(action)
+                    self.present(alert, animated: true, completion: nil)
+                }
+            }
+        } else {
+            print("Internet connection FAILED")
+            let alert = UIAlertController(title: "Alert!", message: "Internet connection FAILED. Please connect to internet", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Dismiss", style: .default, handler: {_ in
                 DispatchQueue.main.async {
                     self.refreshControl.endRefreshing()
                 }
-            } else {
-                let alert = UIAlertController(title: "Alert!", message: "Failed to load data.", preferredStyle: .alert)
-                let action = UIAlertAction(title: "Dismiss", style: .default, handler: nil)
-                alert.addAction(action)
-                self.present(alert, animated: true, completion: nil)
-            }
+            })
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
         }
+        
     }
 }
 

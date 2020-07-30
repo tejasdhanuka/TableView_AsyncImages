@@ -65,5 +65,51 @@ class AsyncImagesViewModel {
     func numberOfRows() -> Int {
         return aboutCanada.rows?.count ?? 0
     }
+    
+//    func isInternetAvailable() -> Bool
+//    {
+//        var zeroAddress = sockaddr_in()
+//        zeroAddress.sin_len = UInt8(MemoryLayout.size(ofValue: zeroAddress))
+//        zeroAddress.sin_family = sa_family_t(AF_INET)
+//
+//        let defaultRouteReachability = withUnsafePointer(to: &zeroAddress) {
+//            $0.withMemoryRebound(to: sockaddr.self, capacity: 1) {zeroSockAddress in
+//                SCNetworkReachabilityCreateWithAddress(nil, zeroSockAddress)
+//            }
+//        }
+//
+//        var flags = SCNetworkReachabilityFlags()
+//        if !SCNetworkReachabilityGetFlags(defaultRouteReachability!, &flags) {
+//            return false
+//        }
+//        let isReachable = flags.contains(.reachable)
+//        let needsConnection = flags.contains(.connectionRequired)
+//        return (isReachable && !needsConnection)
+//    }
+    
+//    func isConnectedToNetwork(response: @escaping ((Bool) -> Void)) -> Bool{
+//        var Status:Bool = false
+//        let url = NSURL(string: "http://google.com/")
+//        let request = NSMutableURLRequest(url: url! as URL)
+//        request.httpMethod = "HEAD"
+//        request.cachePolicy = NSURLRequest.CachePolicy.reloadIgnoringLocalAndRemoteCacheData
+//        request.timeoutInterval = 10.0
+//        let session = URLSession.shared
+//
+//        session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+//            print("data \(String(describing: data))")
+//            print("response \(String(describing: response))")
+//            print("error \(String(describing: error))")
+//
+//            if let httpResponse = response as? HTTPURLResponse {
+//                print("httpResponse.statusCode \(httpResponse.statusCode)")
+//                if httpResponse.statusCode == 200 {
+//                    Status = true
+//                }
+//            }
+//
+//        }).resume()
+//        return Status
+//    }
 }
 
