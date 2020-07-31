@@ -41,4 +41,22 @@ class TableViewAsyncImagesTests: XCTestCase {
             XCTAssertEqual(self.sut.numberOfRows(), 1)
         }
     }
+    
+    func testdataUrl() {
+        let url = "https://dl.dropboxusercontent.com/s/2iodh4vg0eortkl/facts.json"
+        XCTAssertEqual(Constants.dataUrlString, url)
+    }
+    
+    func testApiClient() {
+        let apiClient = AsyncImagesApiClient()
+        apiClient.fetchData(completionHandler: { aboutCanada, error in
+            if let error = error {
+                XCTAssertNil(aboutCanada)
+                XCTAssertNotNil(error)
+            } else {
+                XCTAssertNil(error)
+                XCTAssertNotNil(aboutCanada)
+            }
+        })
+    }
 }

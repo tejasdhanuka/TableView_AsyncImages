@@ -12,6 +12,7 @@ import SystemConfiguration
 
 class AsyncImagesViewModel {
     
+    var apiClient = AsyncImagesApiClient()
     var aboutCanada: AboutCanada
     
     init(aboutCanada: AboutCanada) {
@@ -19,27 +20,16 @@ class AsyncImagesViewModel {
     }
     
     func loadJSON(onCompletion: @escaping ((Bool) -> Void)) {
-        var task: URLSessionTask?
-        
-        guard let url = URL(string: Constants.dataUrlString) else {
-            print("Incorrect URL String. Cannot form URL")
-            return
-        }
-        
-        let session = URLSession(configuration: .default)
-        task = session.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else {
+        apiClient.fetchData(completionHandler: { aboutCanada, error in
+            if let error = error {
+                print(error)
                 onCompletion(false)
                 return
-            }
-            if let Str = String(data: data, encoding: .ascii),
-               let data8 = Str.data(using: .utf8) {
-                let aboutCanada = try! JSONDecoder().decode(AboutCanada.self, from: data8)
+            } else if let aboutCanada = aboutCanada {
                 self.aboutCanada = aboutCanada
                 onCompletion(true)
             }
-        }
-        task?.resume()
+        })
     }
     
     func loadImage(imageUrl: String, index: Int) {
