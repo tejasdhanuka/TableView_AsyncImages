@@ -146,17 +146,17 @@ extension AsyncImagesViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.asyncImagesTableViewCellIdentifier) as? AsyncImagesTableViewCell else {
             return UITableViewCell()
         }
-        //handle empty cell hack
-        if viewModel.aboutCanada.rows?[indexPath.row].title == nil
-            && viewModel.aboutCanada.rows?[indexPath.row].description == nil
-            && viewModel.aboutCanada.rows?[indexPath.row].imageHref == nil {
-            return UITableViewCell()
-        } else {
+//        //handle empty cell hack
+//        if viewModel.aboutCanada.rows?[indexPath.row].title == nil
+//            && viewModel.aboutCanada.rows?[indexPath.row].description == nil
+//            && viewModel.aboutCanada.rows?[indexPath.row].imageHref == nil {
+//            return UITableViewCell()
+//        } else {
             cell.selectionStyle = .none
             cell.articleImageView.imageFromServerURL(urlString: viewModel.aboutCanada.rows?[indexPath.row].imageHref ?? "", PlaceHolderImage: UIImage(named: Constants.placeholderImageName)!)
             cell.titleLabel.text = viewModel.aboutCanada.rows?[indexPath.row].title
             cell.descriptionLabel.text = viewModel.aboutCanada.rows?[indexPath.row].description
             return cell
-        }
+//        }
     }
 }

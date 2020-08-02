@@ -24,7 +24,10 @@ class AsyncImagesApiClient {
             }
             if let data = data, let Str = String(data: data, encoding: .ascii),
                 let data8 = Str.data(using: .utf8) {
-                let aboutCanada = try! JSONDecoder().decode(AboutCanada.self, from: data8)
+                var aboutCanada = try! JSONDecoder().decode(AboutCanada.self, from: data8)
+                aboutCanada.rows?.removeAll(where: {
+                    $0.title == nil && $0.description == nil  && $0.imageHref == nil
+                })
                 completionHandler(aboutCanada, nil)
             }
         }
