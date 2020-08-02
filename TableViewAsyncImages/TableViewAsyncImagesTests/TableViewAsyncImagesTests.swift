@@ -47,7 +47,7 @@ class TableViewAsyncImagesTests: XCTestCase {
         XCTAssertEqual(Constants.dataUrlString, url)
     }
     
-    func testApiClient() {
+    func testDataApiClient() {
         let apiClient = AsyncImagesApiClient()
         apiClient.fetchData(completionHandler: { aboutCanada, error in
             if let error = error {

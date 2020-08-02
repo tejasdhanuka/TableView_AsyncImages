@@ -32,10 +32,10 @@ class AsyncImagesViewModel {
         })
     }
     
-    func loadImage(imageUrl: String, index: Int) {
+    func loadImage(imageUrlString: String, index: Int) {
         var task: URLSessionTask?
         
-        guard let url = URL(string: imageUrl) else {
+        guard let url = URL(string: imageUrlString) else {
             print("Incorrect URL String. Cannot form URL")
             return
         }
