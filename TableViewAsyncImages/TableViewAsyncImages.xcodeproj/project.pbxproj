@@ -21,6 +21,7 @@
 		7FABD53124CAA64D0058A257 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53024CAA64D0058A257 /* Constants.swift */; };
 		7FABD53624CAEA5F0058A257 /* AsyncImagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */; };
 		7FABD53B24CAF9E90058A257 /* UIImageView+NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FABD53A24CAF9E90058A257 /* UIImageView+NetworkRequest.swift */; };
+		7FD72F7B24D68C0200F3E781 /* CustomImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FD72F7A24D68C0200F3E781 /* CustomImageView.swift */; };
 		7FE299F324D3A86A0019B0F8 /* AsyncImagesApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE299F224D3A8690019B0F8 /* AsyncImagesApiClient.swift */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,7 @@
 		7FABD53024CAA64D0058A257 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesViewController.swift; sourceTree = "<group>"; };
 		7FABD53A24CAF9E90058A257 /* UIImageView+NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+NetworkRequest.swift"; sourceTree = "<group>"; };
+		7FD72F7A24D68C0200F3E781 /* CustomImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageView.swift; sourceTree = "<group>"; };
 		7FE299F224D3A8690019B0F8 /* AsyncImagesApiClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImagesApiClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,8 +165,9 @@
 		7FE8F55C24C7E04E0026F073 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */,
 				7FABD53424CAEA5F0058A257 /* AsyncImagesViewController.swift */,
+				7F7FFCAC24BC0B6B00E02EBB /* AsyncImagesTableViewCell.swift */,
+				7FD72F7A24D68C0200F3E781 /* CustomImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F41076924BAE0C8007EE4BE /* AppDelegate.swift in Sources */,
+				7FD72F7B24D68C0200F3E781 /* CustomImageView.swift in Sources */,
 				7FABD52E24CAA11F0058A257 /* AsyncImagesViewModel.swift in Sources */,
 				7FABD53B24CAF9E90058A257 /* UIImageView+NetworkRequest.swift in Sources */,
 				7F41076B24BAE0C8007EE4BE /* SceneDelegate.swift in Sources */,

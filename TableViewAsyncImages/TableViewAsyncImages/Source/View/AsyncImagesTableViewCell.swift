@@ -18,8 +18,8 @@ final class AsyncImagesTableViewCell: UITableViewCell {
         return view
     }()
     
-    let articleImageView: UIImageView = {
-        let imageView = UIImageView()
+    let articleImageView: CustomImageView = {
+        let imageView = CustomImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         return imageView
