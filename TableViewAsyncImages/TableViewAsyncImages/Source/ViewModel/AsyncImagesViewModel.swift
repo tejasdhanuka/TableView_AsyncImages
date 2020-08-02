@@ -31,23 +31,7 @@ class AsyncImagesViewModel {
             }
         })
     }
-    
-    func loadImage(imageUrlString: String, index: Int) {
-        var task: URLSessionTask?
-        
-        guard let url = URL(string: imageUrlString) else {
-            print("Incorrect URL String. Cannot form URL")
-            return
-        }
-        
-        let session = URLSession(configuration: .default)
-        task = session.dataTask(with: url) { data, response, error in
-            guard let data = data, error == nil else { return }
-            self.aboutCanada.rows?[index].image = UIImage(data: data)
-        }
-        task?.resume()
-    }
-    
+
     func numberOfSections() -> Int {
         return 1
     }

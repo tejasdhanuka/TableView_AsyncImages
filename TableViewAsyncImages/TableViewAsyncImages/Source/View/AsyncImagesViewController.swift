@@ -150,7 +150,7 @@ extension AsyncImagesViewController: UITableViewDataSource {
         if let imageUrlString = viewModel.aboutCanada.rows?[indexPath.row].imageHref {
             cell.articleImageView.loadImageUsingUrlString(urlString: imageUrlString)
         } else {
-            cell.articleImageView.image = UIImage(named: "apple")
+            cell.articleImageView.image = UIImage(named: Constants.placeholderImageName)
         }
         cell.titleLabel.text = viewModel.aboutCanada.rows?[indexPath.row].title
         cell.descriptionLabel.text = viewModel.aboutCanada.rows?[indexPath.row].description
